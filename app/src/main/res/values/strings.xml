@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">HomeShare</string>
+    <string-array name="location_options">
+        <item>תל אביב</item>
+        <item>ירושלים</item>
+        <item>חיפה</item>
+        <item>באר שבע</item>
+        <item>ראשון לציון</item>
+        <item>פתח תקווה</item>
+        <item>אזור השרון</item>
+        <item>אחר</item>
+    </string-array>
+
 </resources>

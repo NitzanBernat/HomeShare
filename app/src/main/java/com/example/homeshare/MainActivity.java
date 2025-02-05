@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         SighIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this, SighIn.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, SignIn.class);
+                startActivity(intent);
             }
         });
         LogIn = findViewById(R.id.LogIn);
