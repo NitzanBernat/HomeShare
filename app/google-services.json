@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "95152717859",
+    "project_id": "homeshare-c2a61",
+    "storage_bucket": "homeshare-c2a61.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95152717859:android:d4d3926eeadc66523df196",
+        "android_client_info": {
+          "package_name": "com.example.homeshare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB0rSox9_ePv10LVdznZzWSLJzmwxWqTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
