@@ -25,8 +25,7 @@ public class HomePage extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         frameLayout = findViewById(R.id.frameLayout);
 
-        // Load the ProfileFragment initially
-        loadFragment(new ProfileFragment(), true);
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

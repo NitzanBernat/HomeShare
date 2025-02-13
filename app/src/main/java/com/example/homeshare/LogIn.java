@@ -73,8 +73,8 @@ public class LogIn extends AppCompatActivity {
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             Toast.makeText(LogIn.this, "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
 
-                            // Move to the next screen after successful login
-                            Intent intent = new Intent(LogIn.this, MainActivity.class);
+                            // Move to the HomePage activity after successful login
+                            Intent intent = new Intent(LogIn.this, HomePage.class);
                             startActivity(intent);
                             finish();
                         } else {
