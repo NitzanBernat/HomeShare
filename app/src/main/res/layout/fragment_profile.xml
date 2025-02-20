@@ -37,6 +37,11 @@
                 android:layout_height="wrap_content"
                 android:text="Have an apartment" />
         </RadioGroup>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSaveProfile"
+            android:text="Save" />
 
         <!-- Looking for Apartment -->
         <LinearLayout
@@ -46,8 +51,7 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select area:"
                 android:textSize="16sp"
@@ -58,8 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Price range:"
                 android:textSize="16sp"
@@ -87,8 +90,7 @@
                     android:inputType="number" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Preferred number of rooms:"
                 android:textSize="16sp"
@@ -100,6 +102,39 @@
                 android:layout_height="wrap_content"
                 android:hint="Number of rooms"
                 android:inputType="number" />
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hobbies:"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <EditText
+                android:id="@+id/editTextHobbiesLooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Write your hobbies"
+                android:inputType="text" />
+
+            <CheckBox
+                android:id="@+id/checkBoxSmokingAllowedLooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smoking allowed?" />
+
+            <CheckBox
+                android:id="@+id/checkBoxPetsAllowedLooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pets allowed?" />
+
+            <EditText
+                android:id="@+id/editTextDescriptionLooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Describe your ideal apartment"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
         </LinearLayout>
 
         <!-- Have Apartment -->
@@ -110,8 +145,7 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Apartment location:"
                 android:textSize="16sp"
@@ -122,8 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Apartment size (sqm):"
                 android:textSize="16sp"
@@ -136,8 +169,7 @@
                 android:hint="Size in square meters"
                 android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of rooms:"
                 android:textSize="16sp"
@@ -150,8 +182,7 @@
                 android:hint="Number of rooms"
                 android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Price per month:"
                 android:textSize="16sp"
@@ -163,6 +194,40 @@
                 android:layout_height="wrap_content"
                 android:hint="Price per month"
                 android:inputType="number" />
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hobbies:"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <EditText
+                android:id="@+id/editTextHobbiesHave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Write hobbies of your roommates"
+                android:inputType="text" />
+
+            <CheckBox
+                android:id="@+id/checkBoxSmokingAllowedHave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smoking allowed?" />
+
+            <CheckBox
+                android:id="@+id/checkBoxPetsAllowedHave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pets allowed?" />
+
+            <EditText
+                android:id="@+id/editTextDescriptionHave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Describe the apartment and roommates"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
