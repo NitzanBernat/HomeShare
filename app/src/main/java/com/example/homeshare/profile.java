@@ -1,64 +1,68 @@
 package com.example.homeshare;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link profile#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+
 public class profile extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public profile() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment profile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static profile newInstance(String param1, String param2) {
-        profile fragment = new profile();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private RadioGroup radioGroupSearchType;
+    private RadioButton radioLookingForApartment;
+    private RadioButton radioHaveApartment;
+    private LinearLayout layoutLookingForApartment;
+    private LinearLayout layoutHaveApartment;
+    private Spinner spinnerAreaLooking;
+    private EditText editTextMinPriceLooking;
+    private EditText editTextMaxPriceLooking;
+    private EditText editTextRoomsLooking;
+    private Spinner spinnerAreaHave;
+    private EditText editTextSizeHave;
+    private EditText editTextRoomsHave;
+    private EditText editTextPriceHave;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        // Initialize UI components
+        radioGroupSearchType = view.findViewById(R.id.radioGroupSearchType);
+        radioLookingForApartment = view.findViewById(R.id.radioLookingForApartment);
+        radioHaveApartment = view.findViewById(R.id.radioHaveApartment);
+        layoutLookingForApartment = view.findViewById(R.id.layoutLookingForApartment);
+        layoutHaveApartment = view.findViewById(R.id.layoutHaveApartment);
+        spinnerAreaLooking = view.findViewById(R.id.spinnerAreaLooking);
+        editTextMinPriceLooking = view.findViewById(R.id.editTextMinPriceLooking);
+        editTextMaxPriceLooking = view.findViewById(R.id.editTextMaxPriceLooking);
+        editTextRoomsLooking = view.findViewById(R.id.editTextRoomsLooking);
+        spinnerAreaHave = view.findViewById(R.id.spinnerAreaHave);
+        editTextSizeHave = view.findViewById(R.id.editTextSizeHave);
+        editTextRoomsHave = view.findViewById(R.id.editTextRoomsHave);
+        editTextPriceHave = view.findViewById(R.id.editTextPriceHave);
+
+        // Set up the RadioGroup listener
+        radioGroupSearchType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radioLookingForApartment) {
+                    // Show "Looking for Apartment" layout, hide "Have Apartment" layout
+                    layoutLookingForApartment.setVisibility(View.VISIBLE);
+                    layoutHaveApartment.setVisibility(View.GONE);
+                } else if (checkedId == R.id.radioHaveApartment) {
+                    // Show "Have Apartment" layout, hide "Looking for Apartment" layout
+                    layoutHaveApartment.setVisibility(View.VISIBLE);
+                    layoutLookingForApartment.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        return view;
     }
 }
