@@ -1,233 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you looking for an apartment or do you have one?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <!-- Radio Buttons -->
+    <RadioGroup
+        android:id="@+id/radioGroupSearchType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioLookingForApartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Looking for an apartment" />
+
+        <RadioButton
+            android:id="@+id/radioHaveApartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have an apartment" />
+    </RadioGroup>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSaveProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="16dp" />
+
+    <!-- Looking for Apartment -->
     <LinearLayout
+        android:id="@+id/layoutLookingForApartment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:visibility="gone">
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
+        <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Are you looking for an apartment or do you have one?"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            android:text="Select area:"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
 
-        <!-- Radio Buttons -->
-        <RadioGroup
-            android:id="@+id/radioGroupSearchType"
+        <!-- Text Area for Location instead of Spinner -->
+        <EditText
+            android:id="@+id/spinnerAreaLooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write the area"
+            android:inputType="text" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price range:"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radioLookingForApartment"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextMinPriceLooking"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Looking for an apartment" />
+                android:layout_weight="1"
+                android:hint="Min Price"
+                android:inputType="number" />
 
-            <RadioButton
-                android:id="@+id/radioHaveApartment"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextMaxPriceLooking"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Have an apartment" />
-        </RadioGroup>
-        <Button
+                android:layout_weight="1"
+                android:hint="Max Price"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextRoomsLooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of rooms"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextHobbiesLooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write your hobbies"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSmokingAllowedLooking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSaveProfile"
-            android:text="Save" />
+            android:text="Smoking allowed?" />
 
-        <!-- Looking for Apartment -->
-        <LinearLayout
-            android:id="@+id/layoutLookingForApartment"
+        <CheckBox
+            android:id="@+id/checkBoxPetsAllowedLooking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pets allowed?" />
+
+        <!-- Description for Looking -->
+        <EditText
+            android:id="@+id/editTextDescriptionLooking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select area:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <Spinner
-                android:id="@+id/spinnerAreaLooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price range:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/editTextMinPriceLooking"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Min Price"
-                    android:inputType="number" />
-
-                <EditText
-                    android:id="@+id/editTextMaxPriceLooking"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Max Price"
-                    android:inputType="number" />
-            </LinearLayout>
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Preferred number of rooms:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <EditText
-                android:id="@+id/editTextRoomsLooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Number of rooms"
-                android:inputType="number" />
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hobbies:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <EditText
-                android:id="@+id/editTextHobbiesLooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Write your hobbies"
-                android:inputType="text" />
-
-            <CheckBox
-                android:id="@+id/checkBoxSmokingAllowedLooking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Smoking allowed?" />
-
-            <CheckBox
-                android:id="@+id/checkBoxPetsAllowedLooking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pets allowed?" />
-
-            <EditText
-                android:id="@+id/editTextDescriptionLooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Describe your ideal apartment"
-                android:inputType="textMultiLine"
-                android:minLines="3" />
-        </LinearLayout>
-
-        <!-- Have Apartment -->
-        <LinearLayout
-            android:id="@+id/layoutHaveApartment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apartment location:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <Spinner
-                android:id="@+id/spinnerAreaHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apartment size (sqm):"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <EditText
-                android:id="@+id/editTextSizeHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Size in square meters"
-                android:inputType="number" />
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Number of rooms:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <EditText
-                android:id="@+id/editTextRoomsHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Number of rooms"
-                android:inputType="number" />
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price per month:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <EditText
-                android:id="@+id/editTextPriceHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Price per month"
-                android:inputType="number" />
-
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hobbies:"
-                android:textSize="16sp"
-                android:paddingTop="16dp" />
-
-            <EditText
-                android:id="@+id/editTextHobbiesHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Write hobbies of your roommates"
-                android:inputType="text" />
-
-            <CheckBox
-                android:id="@+id/checkBoxSmokingAllowedHave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Smoking allowed?" />
-
-            <CheckBox
-                android:id="@+id/checkBoxPetsAllowedHave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pets allowed?" />
-
-            <EditText
-                android:id="@+id/editTextDescriptionHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Describe the apartment and roommates"
-                android:inputType="textMultiLine"
-                android:minLines="3" />
-
-        </LinearLayout>
+            android:hint="Describe your ideal apartment"
+            android:inputType="textMultiLine"
+            android:minLines="3" />
     </LinearLayout>
-</ScrollView>
+
+    <!-- Have Apartment -->
+    <LinearLayout
+        android:id="@+id/layoutHaveApartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apartment location:"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <!-- Text Area for Location instead of Spinner -->
+        <EditText
+            android:id="@+id/spinnerAreaHave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write the area"
+            android:inputType="text" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apartment size (sqm):"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <EditText
+            android:id="@+id/editTextSizeHave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Size in square meters"
+            android:inputType="number" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of rooms:"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <EditText
+            android:id="@+id/editTextRoomsHave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of rooms"
+            android:inputType="number" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price per month:"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <EditText
+            android:id="@+id/editTextPriceHave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price per month"
+            android:inputType="number" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hobbies:"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <EditText
+            android:id="@+id/editTextHobbiesHave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write hobbies of your roommates"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSmokingAllowedHave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Smoking allowed?" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPetsAllowedHave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pets allowed?" />
+
+        <!-- Description for Have Apartment -->
+        <EditText
+            android:id="@+id/editTextDescriptionHave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describe the apartment and roommates"
+            android:inputType="textMultiLine"
+            android:minLines="3" />
+    </LinearLayout>
+
+</LinearLayout>
