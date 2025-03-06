@@ -8,6 +8,10 @@ import android.widget.*;
 
 import android.util.Log;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;
-
+import android.widget.ImageView;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +35,13 @@ public class profile extends Fragment {
     private EditText editTextHobbies, editTextDescription;
     private CheckBox checkBoxSmoking, checkBoxPets;
     private Button btnSave;
+    private Button btnCapture;
+    private ImageView imageViewProfile;
+
+    private ActivityResultLauncher<String> imagePickerLauncher;
+    private ImageView imageView;
+
+
 
     private FirebaseDatabase database;
     private DatabaseReference userRef;
@@ -52,6 +63,10 @@ public class profile extends Fragment {
         if (currentUser != null) {
             userRef = database.getReference("users").child(currentUser.getUid());
         }
+        imageView = view.findViewById(R.id.imageView);
+        Button pickImageButton = view.findViewById(R.id.pickImageButton);
+
+
 
         // Connect to XML components
         radioGroupSearchType = view.findViewById(R.id.radioGroupSearchType);
@@ -83,6 +98,20 @@ public class profile extends Fragment {
                 layoutLookingForApartment.setVisibility(View.GONE);
             }
         });
+
+        imagePickerLauncher = registerForActivityResult(
+                new ActivityResultContracts.GetContent(),
+                uri -> {
+                    if (uri != null) {
+                        imageView.setImageURI(uri);
+                    }
+                }
+        );
+
+        pickImageButton.setOnClickListener(v -> {
+            imagePickerLauncher.launch("image/*");
+        });
+
 
         btnSave.setOnClickListener(v -> saveProfileData());
 
