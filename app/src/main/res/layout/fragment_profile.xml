@@ -38,6 +38,12 @@
             android:layout_height="wrap_content"
             android:text="Have an apartment" />
     </RadioGroup>
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your name"
+        android:inputType="textPersonName"/>
 
     <!-- Save Button -->
     <Button

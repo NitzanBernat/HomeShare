@@ -37,6 +37,7 @@ public class profile extends Fragment {
     private Button btnSave;
     private Button btnCapture;
     private ImageView imageViewProfile;
+    private EditText Name;
 
     private ActivityResultLauncher<String> imagePickerLauncher;
     private ImageView imageView;
@@ -87,6 +88,7 @@ public class profile extends Fragment {
         checkBoxSmoking = view.findViewById(R.id.checkBoxSmokingAllowedLooking);
         checkBoxPets = view.findViewById(R.id.checkBoxPetsAllowedLooking);
         btnSave = view.findViewById(R.id.btnSaveProfile);
+        Name = view.findViewById(R.id.editTextName);
 
         // Change visibility based on user selection
         radioGroupSearchType.setOnCheckedChangeListener((group, checkedId) -> {
@@ -134,6 +136,7 @@ public class profile extends Fragment {
         userProfile.put("searchType", searchType);
 
         if ("Looking".equals(searchType)) {
+            userProfile.put("name", Name.getText().toString());
             userProfile.put("area", spinnerAreaLooking.getText().toString()); // Save area
             userProfile.put("minPrice", parseIntOrZero(editTextMinPriceLooking.getText().toString()));
             userProfile.put("maxPrice", parseIntOrZero(editTextMaxPriceLooking.getText().toString()));
@@ -143,6 +146,7 @@ public class profile extends Fragment {
             userProfile.put("smokingAllowed", checkBoxSmoking.isChecked());
             userProfile.put("petsAllowed", checkBoxPets.isChecked());
         } else {
+            userProfile.put("name", Name.getText().toString());
             userProfile.put("area", spinnerAreaHave.getText().toString()); // Save area
             userProfile.put("size", parseIntOrZero(editTextSizeHave.getText().toString()));
             userProfile.put("rooms", parseIntOrZero(editTextRoomsHave.getText().toString()));
@@ -174,6 +178,7 @@ public class profile extends Fragment {
                 if (!snapshot.exists()) {
                     // Profile doesn't exist, create an empty one
                     Map<String, Object> emptyProfile = new HashMap<>();
+                    emptyProfile.put("name", "");
                     emptyProfile.put("searchType", ""); // Default values
                     emptyProfile.put("area", "");
                     emptyProfile.put("minPrice", 0);
@@ -202,6 +207,7 @@ public class profile extends Fragment {
                     radioGroupSearchType.check(R.id.radioLookingForApartment);
                     layoutLookingForApartment.setVisibility(View.VISIBLE);
                     layoutHaveApartment.setVisibility(View.GONE);
+                    Name.setText(snapshot.child("name").getValue(String.class));
                     spinnerAreaLooking.setText(snapshot.child("area").getValue(String.class)); // Load area
                     editTextMinPriceLooking.setText(String.valueOf(snapshot.child("minPrice").getValue(Integer.class)));
                     editTextMaxPriceLooking.setText(String.valueOf(snapshot.child("maxPrice").getValue(Integer.class)));
@@ -216,6 +222,7 @@ public class profile extends Fragment {
                     radioGroupSearchType.check(R.id.radioHaveApartment);
                     layoutLookingForApartment.setVisibility(View.GONE);
                     layoutHaveApartment.setVisibility(View.VISIBLE);
+                    Name.setText(snapshot.child("name").getValue(String.class));
                     spinnerAreaHave.setText(snapshot.child("area").getValue(String.class)); // Load area
                     editTextSizeHave.setText(String.valueOf(snapshot.child("size").getValue(Integer.class)));
                     editTextRoomsHave.setText(String.valueOf(snapshot.child("rooms").getValue(Integer.class)));
