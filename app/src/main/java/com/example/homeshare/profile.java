@@ -34,10 +34,11 @@ public class profile extends Fragment {
     private EditText editTextSizeHave, editTextRoomsHave, editTextPriceHave;
     private EditText editTextHobbies, editTextDescription;
     private CheckBox checkBoxSmoking, checkBoxPets;
+    private EditText Name;
     private Button btnSave;
     private Button btnCapture;
     private ImageView imageViewProfile;
-    private EditText Name;
+
 
     private ActivityResultLauncher<String> imagePickerLauncher;
     private ImageView imageView;

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".serch_profile">
+
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView android:id="@+id/profileSearchType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Looking for: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profileArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Area: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profilePriceRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price Range: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profileRooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rooms: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profileSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apartment Size: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profilePriceHave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apartment Price: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profileHobbies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hobbies: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profileDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profileSmoking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smoking: "
+                android:textSize="16sp"/>
+
+            <TextView android:id="@+id/profilePets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pets: "
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/closeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>

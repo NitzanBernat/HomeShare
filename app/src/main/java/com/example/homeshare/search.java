@@ -31,6 +31,7 @@ public class search extends Fragment {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private List<String> userList;
+    private List<String> userIdsList; // רשימת userId-ים
 
     private DatabaseReference databaseReference;
 
@@ -48,12 +49,19 @@ public class search extends Fragment {
         listView = view.findViewById(R.id.listView);
 
         userList = new ArrayList<>();
+        userIdsList = new ArrayList<>(); // יישום הרשימה של ה- userId
+
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, userList);
         listView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
         searchButton.setOnClickListener(v -> searchUsers());
+
+        listView.setOnItemClickListener((parent, view1, position, id) -> {
+            String selectedUserId = userIdsList.get(position); // שליפת ה-userId המתאים
+            showUserProfile(selectedUserId);
+        });
 
         return view;
     }
@@ -65,22 +73,23 @@ public class search extends Fragment {
             return;
         }
 
-        // Construct the query to search for users by name
-        Query query = FirebaseDatabase.getInstance().getReference("users").orderByChild("profile/name").equalTo(queryText);
-
+        Query query = databaseReference.orderByChild("profile/name").equalTo(queryText);
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userList.clear();
+                userIdsList.clear(); // ננקה גם את ה-userId-ים
+
                 if (snapshot.exists()) {
                     for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                        // Access the profile node to get the name
+                        String userId = userSnapshot.getKey(); // קבלת ה-userId
                         DataSnapshot profileSnapshot = userSnapshot.child("profile");
                         if (profileSnapshot.exists()) {
                             String name = profileSnapshot.child("name").getValue(String.class);
                             if (name != null) {
                                 userList.add(name);
+                                userIdsList.add(userId); // הוספת userId לרשימה
                             }
                         }
                     }
@@ -92,9 +101,14 @@ public class search extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("SearchFragment", "Database error: " + error.getMessage(), error.toException());
-                Toast.makeText(getContext(), "Error loading data: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e("search", "Error searching users", error.toException());
+                Toast.makeText(getContext(), "Error loading data", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showUserProfile(String userId) {
+        serch_profile bottomSheetFragment = serch_profile.newInstance(userId);
+        bottomSheetFragment.show(getParentFragmentManager(), bottomSheetFragment.getTag());
     }
 }
