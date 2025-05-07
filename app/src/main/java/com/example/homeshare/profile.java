@@ -1,5 +1,6 @@
 package com.example.homeshare;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,6 +41,8 @@ public class profile extends Fragment {
     private Button btnSave;
     private Button btnCapture;
     private ImageView imageViewProfile;
+    private Uri imageUri;
+    private FirebaseStorage storage;
 
 
     private ActivityResultLauncher<String> imagePickerLauncher;
@@ -106,6 +111,7 @@ public class profile extends Fragment {
                 new ActivityResultContracts.GetContent(),
                 uri -> {
                     if (uri != null) {
+                        imageUri = uri;
                         imageView.setImageURI(uri);
                     }
                 }
