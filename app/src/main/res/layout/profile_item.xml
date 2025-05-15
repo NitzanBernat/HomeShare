@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_marginBottom="12dp"
+    android:background="#EEEEEE"
+    android:elevation="4dp"
+    android:layout_gravity="center" >
+
+    <!-- תמונה אם יש -->
+<ImageView
+android:id="@+id/profileImageView"
+android:layout_width="100dp"
+android:layout_height="100dp"
+android:layout_gravity="center"
+android:src="@drawable/default_picture"
+android:layout_marginBottom="8dp" />
+
+    <!-- שם המשתמש -->
+<TextView
+android:id="@+id/nameTextView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Name"
+android:textSize="18sp"
+android:textColor="#000000"
+android:layout_marginBottom="4dp" />
+
+    <!-- אזור המגורים -->
+<TextView
+android:id="@+id/areaTextView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Area"
+android:textSize="16sp"
+android:textColor="#333333"
+android:layout_marginBottom="4dp" />
+
+    <!-- מחיר -->
+<TextView
+android:id="@+id/priceTextView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Price"
+android:textSize="14sp"
+android:textColor="#333333"
+android:layout_marginBottom="4dp" />
+
+    <!-- מספר חדרים -->
+<TextView
+android:id="@+id/roomsTextView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Rooms"
+android:textSize="14sp"
+android:textColor="#333333" />
+
+    </LinearLayout>

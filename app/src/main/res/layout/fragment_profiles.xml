@@ -5,10 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".profiles">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileLayout">
+
+            <!-- כל פרופיל יוצג כאן בתוך LinearLayout -->
+        </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>
